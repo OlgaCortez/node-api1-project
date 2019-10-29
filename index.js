@@ -15,7 +15,7 @@ server.post('/api/users', (req, res) => {
     if (!name || !bio) {
         res.status(400).json({error: "Please provide name and bio from the user"});
     } else {
-    db.inset({name, bio})
+    db.insert({name, bio})
     .then(({id}) => {
         db.findById(id)
         .then(user => {
